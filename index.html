@@ -74,12 +74,14 @@
             font-size: 1.1rem;
         }
 
+        /* MODIFICADO: Estructura en PC y móvil idéntica en horizontal */
         .exact-card {
             display: flex;
             width: 100vw;
             height: 100vh;
             position: relative;
             overflow: hidden;
+            flex-direction: row; /* Forzar siempre lado a lado como en PC */
         }
 
         .card-half-left {
@@ -398,7 +400,6 @@
             text-align: center;
         }
 
-        /* SELLO FIJO ARRIBA DEL TEXTO, VISIBLE DESDE EL INICIO */
         .stamp-top-img {
             max-width: 220px;
             width: 100%;
@@ -459,7 +460,6 @@
             background-color: rgba(255,255,255,0.1);
         }
 
-        /* MODAL / PANTALLA DE CÓMO SE JUEGA */
         #howtoplay-overlay {
             position: fixed;
             top: 0;
@@ -508,7 +508,6 @@
             margin-bottom: 15px;
         }
 
-        /* ESTILOS PARA EL SELECTOR DE MÚSICA */
         .music-selector-overlay {
             position: fixed;
             top: 0;
@@ -593,7 +592,6 @@
             background: #26af5f;
         }
 
-        /* ESTILOS INTRO TEXTO NORMAL (FADE OUT AL JUEGO) */
         #intro-overlay {
             position: fixed;
             top: 0;
@@ -618,6 +616,49 @@
             text-align: left;
             white-space: pre-wrap;
         }
+
+        /* ----------------------------------------------------
+           NUEVO: AJUSTES ESPECÍFICOS PARA MÓVILES EN HORIZONTAL
+           ---------------------------------------------------- */
+        @media screen and (max-width: 768px) {
+            .stat-label-exact {
+                font-size: 0.95rem;
+                margin-top: 60px;
+                letter-spacing: 0.5px;
+            }
+            .center-free-container {
+                max-width: 85%;
+                gap: 6px;
+            }
+            .center-free-img-container img {
+                max-height: 120px;
+            }
+            .event-text-free {
+                font-size: 0.85rem;
+                line-height: 1.2;
+            }
+            .action-btn-free {
+                font-size: 0.8rem;
+                padding: 6px 4px;
+            }
+            .center-big-btn {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+            .footer-drink-label {
+                font-size: 0.8rem;
+            }
+            .footer-drink-container div[style*="font-size:0.95rem"] {
+                font-size: 0.75rem !important;
+            }
+            .footer-drink-img-box {
+                width: 35px;
+                height: 35px;
+            }
+            .top-logo-area img {
+                max-width: 140px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -638,7 +679,7 @@
         </div>
     </div>
 
-    <!-- PANTALLA INTRO TEXTO NORMAL EN BLANCO (NO SE PUEDE SALTAR) -->
+    <!-- PANTALLA INTRO TEXTO NORMAL EN BLANCO -->
     <div id="intro-overlay">
         <div class="intro-text-box" id="intro-text-content"></div>
     </div>
@@ -741,7 +782,6 @@
         <!-- PANTALLA 3: CRÓNICA (ESTILO INTRO) -->
         <div id="end-screen" class="screen">
             <div class="end-content-box">
-                <!-- SELLO COLOCADO ARRIBA DEL TEXTO DESDE EL INICIO -->
                 <img src="APPROVED.png" alt="Approved" class="stamp-top-img">
                 <div class="end-text-box" id="end-text-content"></div>
                 <div class="end-actions" id="end-actions-container">
@@ -1032,21 +1072,21 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
 
             if (currentEvent.isPillEvent) {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolvePillEvent(true)">💊 TRAGAR PASTILLA<br><span style="font-size: 0.85rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolvePillEvent(true)">💊 TRAGAR PASTILLA<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolvePillEvent(false)">🛡️ PASAR</button>
                 `;
             } else if (currentEvent.isShotEvent) {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolveShotEvent(true)">🥃 BEBER CHUPITOS<br><span style="font-size: 0.85rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolveShotEvent(true)">🥃 BEBER CHUPITOS<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolveShotEvent(false)">🛡️ PASAR</button>
                 `;
             } else {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolveEvent(true)">⚡ ${currentEvent.riskText.toUpperCase()}<br><span style="font-size: 0.85rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolveEvent(true)">⚡ ${currentEvent.riskText.toUpperCase()}<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolveEvent(false)">🛡️ PASAR SEGURO</button>
@@ -1174,7 +1214,7 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
         function showResolutionScreen(message) {
             const centerContainer = document.getElementById("center-dynamic-container");
             centerContainer.innerHTML = `
-                <div class="event-text-free" style="color: #ffeb3b; font-size: 1.25rem; margin-bottom: 15px;">${message}</div>
+                <div class="event-text-free" style="color: #ffeb3b; font-size: 1.1rem; margin-bottom: 10px;">${message}</div>
                 <button class="center-big-btn" onclick="promptDrinkSelection()">CONTINUAR ➔</button>
             `;
             document.getElementById("left-action-container").innerHTML = "";
@@ -1208,11 +1248,11 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
         function promptDrinkSelection() {
             const centerContainer = document.getElementById("center-dynamic-container");
             centerContainer.innerHTML = `
-                <div style="font-size: 0.8rem; color: #ffeb3b; font-weight: bold; text-transform: uppercase;">Barra Libre</div>
-                <div style="font-size: 1rem; color: #fff; font-weight: 900; text-transform: uppercase; margin-bottom: 10px;">¿Qué haces con la bebida?</div>
-                <button class="center-big-btn" onclick="spinDrinkRoulette()">🔄 Cambiar (+25% Vómito)</button>
-                <button class="center-big-btn" style="background-color: #00ff66; color:#000;" onclick="handleDrinkChoice('keep')">🛡️ Mantener (+25% Vómito)</button>
-                <button class="center-big-btn" style="background-color: #ff4444; color:#fff;" onclick="handleDrinkChoice('none')">🚫 No beber (-25% Vómito)</button>
+                <div style="font-size: 0.75rem; color: #ffeb3b; font-weight: bold; text-transform: uppercase;">Barra Libre</div>
+                <div style="font-size: 0.9rem; color: #fff; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">¿Qué haces con la bebida?</div>
+                <button class="center-big-btn" onclick="spinDrinkRoulette()">🔄 Cambiar (+25%)</button>
+                <button class="center-big-btn" style="background-color: #00ff66; color:#000;" onclick="handleDrinkChoice('keep')">🛡️ Mantener (+25%)</button>
+                <button class="center-big-btn" style="background-color: #ff4444; color:#fff;" onclick="handleDrinkChoice('none')">🚫 No beber (-25%)</button>
             `;
 
             document.getElementById("left-action-container").innerHTML = "";
@@ -1220,7 +1260,7 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
 
             if (player.eventsFaced >= maxEvents) {
                 centerContainer.innerHTML = `
-                    <div style="font-size: 1.1rem; color: #ffeb3b; font-weight: bold; margin-bottom: 15px;">¡Fin de la ronda!</div>
+                    <div style="font-size: 1rem; color: #ffeb3b; font-weight: bold; margin-bottom: 12px;">¡Fin de la ronda!</div>
                     <button class="center-big-btn" style="background-color: #00ff66; color:#000;" onclick="showEndScreen()">📊 Ver Crónica</button>
                 `;
             }
@@ -1421,7 +1461,6 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
                     clearInterval(endTypewriterInterval);
                     endTypewriterInterval = null;
                     
-                    // Exactamente dos segundos después de terminar de escribirse el texto, aparecen los botones
                     setTimeout(() => {
                         actionsContainer.style.display = 'flex';
                     }, 2000);
