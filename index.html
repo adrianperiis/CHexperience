@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH experience</title>
     <style>
         * {
@@ -12,7 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        html, body {
+       html, body {
             width: 100%;
             height: 100vh;
             background: url('FONDO.jpg') no-repeat center center fixed;
@@ -74,14 +74,14 @@
             font-size: 1.1rem;
         }
 
-        /* ESTRUCTURA BASE DE LA TARJETA (PC / HORIZONTAL) */
+        /* ESTRUCTURA IDÉNTICA EN PC Y MÓVIL (Lado a lado forzado) */
         .exact-card {
             display: flex;
             width: 100vw;
             height: 100vh;
             position: relative;
             overflow: hidden;
-            flex-direction: row;
+            flex-direction: row; 
         }
 
         .card-half-left {
@@ -91,7 +91,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 15px;
+            padding: 20px 10px;
             text-align: center;
             position: relative;
         }
@@ -103,7 +103,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 15px;
+            padding: 20px 10px;
             text-align: center;
             position: relative;
         }
@@ -112,14 +112,14 @@
             width: 100%;
             text-align: center;
             position: absolute;
-            top: 15px;
+            top: 10px;
             left: 0;
             z-index: 20;
             pointer-events: none;
         }
 
         .top-logo-area img {
-            max-width: 240px;
+            max-width: 200px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -128,57 +128,57 @@
 
         .stat-label-exact {
             color: #ffffff;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-shadow: 0 3px 6px rgba(0,0,0,0.7);
-            margin-top: 75px;
+            margin-top: 65px;
             z-index: 5;
         }
 
         .center-free-container {
             position: absolute;
-            top: 48%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 25;
-            width: 90%;
-            max-width: 400px;
+            width: 88%;
+            max-width: 380px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             pointer-events: auto;
-            gap: 12px;
+            gap: 10px;
         }
 
         .center-free-img-container {
             width: 100%;
-            max-height: 220px;
+            max-height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .center-free-img-container img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 160px;
             object-fit: contain;
             filter: drop-shadow(0 8px 16px rgba(0,0,0,0.8));
         }
 
         .event-text-free {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 900;
             color: #ffffff;
             text-transform: uppercase;
-            line-height: 1.35;
+            line-height: 1.3;
             text-shadow: 0 3px 8px rgba(0,0,0,0.95), 0 0 6px #000;
             width: 100%;
-            padding: 0 5px;
+            padding: 0 4px;
         }
 
         .action-btn-free {
@@ -186,12 +186,12 @@
             background: transparent;
             color: #ffffff;
             border: none;
-            font-size: 1.0rem;
+            font-size: 0.95rem;
             font-weight: 900;
             text-transform: uppercase;
             cursor: pointer;
-            padding: 10px 12px;
-            line-height: 1.3;
+            padding: 8px 10px;
+            line-height: 1.25;
             text-shadow: 0 2px 6px rgba(0,0,0,0.95), 0 0 4px #000;
             transition: transform 0.1s, color 0.2s;
         }
@@ -208,8 +208,8 @@
             background-color: #ffeb3b;
             color: #000;
             border: 3px solid #fff;
-            padding: 14px 20px;
-            font-size: 1rem;
+            padding: 12px 18px;
+            font-size: 0.95rem;
             font-weight: 900;
             border-radius: 12px;
             cursor: pointer;
@@ -233,21 +233,21 @@
         }
 
         .footer-drink-label {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 900;
             color: #ffffff;
             text-transform: uppercase;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .footer-drink-img-box {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .footer-drink-img-box img {
@@ -260,7 +260,7 @@
 
         @keyframes bounceDrink {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-4px); }
         }
 
         /* OVERLAY DE RULETA DE BEBIDAS */
@@ -280,21 +280,19 @@
         }
 
         .roulette-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: #ffeb3b;
             text-transform: uppercase;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-shadow: 0 3px 6px rgba(0,0,0,0.9);
             letter-spacing: 2px;
-            text-align: center;
-            padding: 0 10px;
         }
 
         .roulette-box-container {
             position: relative;
             width: 100vw;
-            height: 280px;
+            height: 260px;
             background: transparent;
             border: none;
             border-top: 4px solid rgba(255,255,255,0.15);
@@ -308,7 +306,7 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 5px;
+            width: 4px;
             height: 100%;
             background-color: #ffeb3b;
             z-index: 50;
@@ -346,38 +344,37 @@
         }
 
         .roulette-item {
-            min-width: 240px;
+            min-width: 220px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: transparent;
-            border-right: none;
             padding: 10px;
             text-align: center;
         }
 
         .roulette-item .drink-name {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 900;
             color: #fff;
             text-transform: uppercase;
             white-space: nowrap;
             text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .roulette-item img {
-            max-width: 130px;
-            max-height: 130px;
+            max-width: 110px;
+            max-height: 110px;
             object-fit: contain;
             filter: drop-shadow(0 8px 16px rgba(0,0,0,0.9));
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .roulette-item .drink-bonus {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 900;
             color: #ffeb3b;
             text-transform: uppercase;
@@ -385,49 +382,49 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.9);
         }
 
-        /* PANTALLA FINAL ESTILO INTRO */
+        /* PANTALLA FINAL */
         #end-screen {
             background: #000000;
-            padding: 40px;
+            padding: 30px;
             justify-content: center !important;
             align-items: center !important;
-            overflow-y: auto;
         }
 
         .end-content-box {
-            max-width: 700px;
+            max-width: 650px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin: auto;
         }
 
         .stamp-top-img {
-            max-width: 220px;
+            max-width: 180px;
             width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 6px 16px rgba(0,0,0,0.9));
         }
 
         .end-text-box {
             color: #ffffff;
             font-size: 1.1rem;
-            line-height: 1.7;
+            line-height: 1.6;
             text-align: left;
             white-space: pre-wrap;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             width: 100%;
+            max-height: 50vh;
+            overflow-y: auto;
         }
 
         .end-actions {
             display: none;
             width: 100%;
-            gap: 15px;
+            gap: 12px;
             flex-direction: column;
-            margin-top: 10px;
+            margin-top: 5px;
             z-index: 60;
         }
 
@@ -435,8 +432,8 @@
             background-color: #ffeb3b;
             color: #000;
             border: 3px solid #fff;
-            padding: 14px;
-            font-size: 1.1rem;
+            padding: 12px;
+            font-size: 1rem;
             font-weight: 900;
             border-radius: 12px;
             cursor: pointer;
@@ -450,13 +447,13 @@
             background-color: transparent;
             color: #fff;
             border: 2px solid #fff;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 10px;
+            font-size: 0.95rem;
             font-weight: 900;
             border-radius: 12px;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 8px;
             text-transform: uppercase;
             transition: background-color 0.2s, color 0.2s;
         }
@@ -476,17 +473,16 @@
             justify-content: center;
             align-items: center;
             backdrop-filter: blur(8px);
-            padding: 20px;
         }
 
         .howtoplay-container {
-            width: 100%;
-            max-width: 480px;
-            max-height: 85vh;
+            width: 90%;
+            max-width: 450px;
+            max-height: 80vh;
             background: rgba(15, 28, 20, 0.98);
             border: 3px solid #ffcc00;
             border-radius: 16px;
-            padding: 25px 20px;
+            padding: 20px;
             overflow-y: auto;
             text-align: left;
             color: #fff;
@@ -496,21 +492,21 @@
         .howtoplay-container h2 {
             color: #ffeb3b;
             text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
             text-transform: uppercase;
         }
 
         .howtoplay-container p, .howtoplay-container li {
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            line-height: 1.4;
             color: #ddd;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .howtoplay-container ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin-left: 18px;
+            margin-bottom: 12px;
         }
 
         .music-selector-overlay {
@@ -519,48 +515,47 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.6); 
+            background: rgba(0, 0, 0, 0.5); 
             display: none; 
             justify-content: center;
             align-items: center;
             z-index: 99999;
             backdrop-filter: blur(5px);
-            padding: 20px;
         }
 
         .selector-container {
             background: #0f1c14; 
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 2px solid #ffcc00;
             text-align: center;
             color: #fff;
-            max-width: 400px;
-            width: 100%;
+            max-width: 380px;
+            width: 90%;
         }
            
         .selector-container h2 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
         }
 
         .playlist {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin: 20px 0;
+            gap: 10px;
+            margin: 15px 0;
         }
 
         .track-btn {
             background: #011e0d;
             color: #fff;
             border: 1px solid #3c2d02;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .track-btn:hover {
@@ -578,9 +573,9 @@
             background: #2ed573;
             color: #fff;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: bold;
             cursor: pointer;
             width: 100%;
@@ -612,112 +607,62 @@
             padding: 30px;
             opacity: 1;
             transition: opacity 1.5s ease;
-            overflow-y: auto;
         }
 
         .intro-text-box {
-            max-width: 700px;
+            max-width: 650px;
             color: #ffffff;
-            font-size: 1.15rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.6;
             text-align: left;
             white-space: pre-wrap;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         /* -------------------------------------------------------------------------
-           ADAPTACIÓN RESPONSIVA PARA MÓVILES EN VERTICAL (PORTRAIT / max-width: 768px)
+           AJUSTES ESTRICTOS PARA MÓVILES VERTICALES (Evita solapes y fuentes gigantes)
            ------------------------------------------------------------------------- */
-        @media screen and (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
-            html, body {
-                overflow-y: auto;
-                height: 100%;
-            }
-
-            #game-container {
-                height: 100%;
-                min-height: 100vh;
-            }
-
-            .exact-card {
-                flex-direction: column !important;
-                height: 100% !important;
-                min-height: 100vh;
-                position: relative;
-            }
-
-            .top-logo-area {
-                position: relative;
-                top: 0;
-                margin-top: 15px;
-                margin-bottom: 10px;
-            }
-
-            .top-logo-area img {
-                max-width: 160px;
-            }
-
-            .card-half-left {
-                flex: none;
-                width: 100%;
-                min-height: 50vh;
-                padding: 15px 15px 90px 15px; /* Espacio inferior para los botones de acción */
-                justify-content: flex-start;
-            }
-
-            .card-half-right {
-                flex: none;
-                width: 100%;
-                min-height: 50vh;
-                padding: 15px 15px 25px 15px;
-                justify-content: flex-start;
-            }
-
+        @media screen and (max-width: 768px) {
             .stat-label-exact {
-                margin-top: 10px;
-                font-size: 1.1rem;
+                font-size: 0.75rem;
+                margin-top: 55px;
+                letter-spacing: 0.2px;
             }
-
             .center-free-container {
-                position: relative;
-                top: auto;
-                left: auto;
-                transform: none;
-                width: 92%;
-                max-width: 100%;
-                margin: 15px auto;
-                z-index: 30;
+                max-width: 92%;
+                gap: 5px;
             }
-
+            .center-free-img-container {
+                max-height: 110px;
+            }
             .center-free-img-container img {
-                max-height: 130px;
+                max-height: 100px;
             }
-
             .event-text-free {
-                font-size: 0.95rem;
-                line-height: 1.3;
+                font-size: 0.75rem;
+                line-height: 1.15;
             }
-
             .action-btn-free {
-                font-size: 0.9rem;
-                padding: 8px 10px;
+                font-size: 0.7rem;
+                padding: 5px 2px;
             }
-
             .center-big-btn {
-                padding: 12px 16px;
-                font-size: 0.95rem;
+                padding: 6px 8px;
+                font-size: 0.75rem;
             }
-
-            .footer-drink-container {
-                margin-top: 10px;
-            }
-
             .footer-drink-label {
-                font-size: 0.85rem;
+                font-size: 0.7rem;
             }
-
+            .footer-drink-container div[style*="font-size:0.95rem"] {
+                font-size: 0.65rem !important;
+            }
             .footer-drink-img-box {
-                width: 40px;
-                height: 40px;
+                width: 28px;
+                height: 28px;
+            }
+            .top-logo-area img {
+                max-width: 110px;
             }
         }
     </style>
@@ -728,7 +673,7 @@
     <div id="music-selector-screen" class="music-selector-overlay">
         <div class="selector-container">
             <h2>🎵 Elige tu música</h2>
-            <p style="color: #fcbd07; font-size: 0.9rem;">Selecciona el tema que sonará de fondo:</p>
+            <p style="color: #fcbd07; font-size: 0.85rem;">Selecciona el tema que sonará de fondo:</p>
             
             <div class="playlist">
                 <button class="track-btn" data-src="Do you remember.mp3">🎶 Do You Remember</button>
@@ -763,7 +708,7 @@
                 <li>⚠️ Si tu barra de vómito llega o supera el <b>100%</b>, colapsas al instante y <b>se acaba la partida</b>.</li>
             </ul>
 
-            <button class="primary-btn" onclick="closeHowToPlay()" style="margin-top: 15px;">¡Entendido, a jugar! 🚀</button>
+            <button class="primary-btn" onclick="closeHowToPlay()" style="margin-top: 10px;">¡Entendido, a jugar! 🚀</button>
         </div>
     </div>
 
@@ -786,11 +731,11 @@
 
         <!-- PANTALLA 1: REGISTRO -->
         <div id="setup-screen" class="screen active">
-            <div style="margin-bottom: 20px;">
-                <img src="TITULO.png" alt="CHALETEO Experience" style="max-width: 280px; height: auto;" onerror="this.style.display='none'">
+            <div style="margin-bottom: 15px;">
+                <img src="TITULO.png" alt="CHALETEO Experience" style="max-width: 240px; height: auto;" onerror="this.style.display='none'">
             </div>
-            <h2 style="color: #fcbd07; font-size: 1.6rem; margin-bottom: 8px;">NOCHE EN CH</h2>
-            <p style="color:#999; margin-bottom:25px; font-size:1.05rem;">Ponte tu mejor perfume y prepara tu hígado.</p>
+            <h2 style="color: #fcbd07; font-size: 1.4rem; margin-bottom: 6px;">NOCHE EN CH</h2>
+            <p style="color:#999; margin-bottom:20px; font-size:0.95rem;">Ponte tu mejor perfume y prepara tu hígado.</p>
             
             <div class="form-group">
                 <label for="player-name-input">Nombre del Chaletero:</label>
@@ -812,11 +757,11 @@
                 <div class="card-half-left">
                     <div class="stat-label-exact">GLOBAL: <span id="ui-global-val">75</span></div>
                     
-                    <div style="width:100%; padding: 0 15px;" id="left-action-container"></div>
+                    <div style="width:100%; padding: 0 5px;" id="left-action-container"></div>
 
                     <div class="footer-drink-container">
                         <div class="footer-drink-label">ESTAS BEBIENDO:</div>
-                        <div id="ui-drink-l" style="font-size:0.95rem; color:#ffeb3b; font-weight:bold; text-shadow:0 2px 4px #000;">Ron Cola (Bueno) (+10%)</div>
+                        <div id="ui-drink-l" style="font-size:0.85rem; color:#ffeb3b; font-weight:bold; text-shadow:0 2px 4px #000;">Ron Cola (Bueno) (+10%)</div>
                         <div class="footer-drink-img-box" id="ui-drink-img-container">
                             <img id="ui-drink-img" src="RON COLA BUENO.png" alt="Bebida" onerror="this.parentElement.style.display='none'">
                         </div>
@@ -830,11 +775,11 @@
                 <div class="card-half-right">
                     <div class="stat-label-exact">VÓMITO: <span id="ui-vomit-val">0%</span></div>
                     
-                    <div style="width:100%; padding: 0 15px;" id="right-action-container"></div>
+                    <div style="width:100%; padding: 0 5px;" id="right-action-container"></div>
 
                     <div class="footer-drink-container">
                         <div class="footer-drink-label" style="opacity:0;">-</div>
-                        <div style="font-size:0.95rem; color:#a3e4d7; font-weight:bold; text-shadow:0 2px 4px #000;">CH EXPERIENCE</div>
+                        <div style="font-size:0.85rem; color:#a3e4d7; font-weight:bold; text-shadow:0 2px 4px #000;">CH EXPERIENCE</div>
                     </div>
                 </div>
             </div>
@@ -1133,21 +1078,21 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
 
             if (currentEvent.isPillEvent) {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolvePillEvent(true)">💊 TRAGAR PASTILLA<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolvePillEvent(true)">💊 TRAGAR PASTILLA<br><span style="font-size: 0.65rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolvePillEvent(false)">🛡️ PASAR</button>
                 `;
             } else if (currentEvent.isShotEvent) {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolveShotEvent(true)">🥃 BEBER CHUPITOS<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolveShotEvent(true)">🥃 BEBER CHUPITOS<br><span style="font-size: 0.65rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolveShotEvent(false)">🛡️ PASAR</button>
                 `;
             } else {
                 leftContainer.innerHTML = `
-                    <button class="action-btn-free" onclick="resolveEvent(true)">⚡ ${currentEvent.riskText.toUpperCase()}<br><span style="font-size: 0.75rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
+                    <button class="action-btn-free" onclick="resolveEvent(true)">⚡ ${currentEvent.riskText.toUpperCase()}<br><span style="font-size: 0.65rem; color: #ffeb3b;">[${successPercent}% ÉXITO / ${failPercent}% FRACASO]</span></button>
                 `;
                 rightContainer.innerHTML = `
                     <button class="action-btn-free" onclick="resolveEvent(false)">🛡️ PASAR SEGURO</button>
@@ -1275,7 +1220,7 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
         function showResolutionScreen(message) {
             const centerContainer = document.getElementById("center-dynamic-container");
             centerContainer.innerHTML = `
-                <div class="event-text-free" style="color: #ffeb3b; font-size: 1.1rem; margin-bottom: 10px;">${message}</div>
+                <div class="event-text-free" style="color: #ffeb3b; font-size: 0.95rem; margin-bottom: 8px;">${message}</div>
                 <button class="center-big-btn" onclick="promptDrinkSelection()">CONTINUAR ➔</button>
             `;
             document.getElementById("left-action-container").innerHTML = "";
@@ -1309,8 +1254,8 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
         function promptDrinkSelection() {
             const centerContainer = document.getElementById("center-dynamic-container");
             centerContainer.innerHTML = `
-                <div style="font-size: 0.75rem; color: #ffeb3b; font-weight: bold; text-transform: uppercase;">Barra Libre</div>
-                <div style="font-size: 0.9rem; color: #fff; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">¿Qué haces con la bebida?</div>
+                <div style="font-size: 0.65rem; color: #ffeb3b; font-weight: bold; text-transform: uppercase;">Barra Libre</div>
+                <div style="font-size: 0.8rem; color: #fff; font-weight: 900; text-transform: uppercase; margin-bottom: 6px;">¿Qué haces con la bebida?</div>
                 <button class="center-big-btn" onclick="spinDrinkRoulette()">🔄 Cambiar (+25%)</button>
                 <button class="center-big-btn" style="background-color: #00ff66; color:#000;" onclick="handleDrinkChoice('keep')">🛡️ Mantener (+25%)</button>
                 <button class="center-big-btn" style="background-color: #ff4444; color:#fff;" onclick="handleDrinkChoice('none')">🚫 No beber (-25%)</button>
@@ -1321,7 +1266,7 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
 
             if (player.eventsFaced >= maxEvents) {
                 centerContainer.innerHTML = `
-                    <div style="font-size: 1rem; color: #ffeb3b; font-weight: bold; margin-bottom: 12px;">¡Fin de la ronda!</div>
+                    <div style="font-size: 0.9rem; color: #ffeb3b; font-weight: bold; margin-bottom: 10px;">¡Fin de la ronda!</div>
                     <button class="center-big-btn" style="background-color: #00ff66; color:#000;" onclick="showEndScreen()">📊 Ver Crónica</button>
                 `;
             }
@@ -1375,7 +1320,7 @@ Entre perchero y perchero de segunda mano, con olor a humedad y precios absurdos
 
             track.getBoundingClientRect();
 
-            const itemWidth = 240; 
+            const itemWidth = 220; 
             const windowWidth = window.innerWidth;
             
             const targetCenterPosition = (winningIndex * itemWidth) + (itemWidth / 2);
